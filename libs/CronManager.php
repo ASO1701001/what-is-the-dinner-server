@@ -1,5 +1,8 @@
 <?php
 class CronManager {
+    /**
+     * ターゲットユーザーテーブルのメニューIDをNULLにする
+     */
     public static function targetUserMenuClear() {
         require_once 'DatabaseManager.php';
         $db = new DatabaseManager();
@@ -7,6 +10,9 @@ class CronManager {
         $db->execute($sql, array());
     }
 
+    /**
+     * 家族ユーザーテーブルのメニューIDをNULLにする
+     */
     public static function familyUserMenuClear() {
         require_once 'DatabaseManager.php';
         $db = new DatabaseManager();
@@ -14,6 +20,9 @@ class CronManager {
         $db->execute($sql, array());
     }
 
+    /**
+     * 30日以上前の決定献立履歴を削除する
+     */
     public static function menuLogClear() {
         require_once 'DatabaseManager.php';
         $db = new DatabaseManager();
