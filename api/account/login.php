@@ -9,7 +9,7 @@ if (!isset($_GET['email']) || !isset($_GET['password'])) {
     if (is_null($data)) {
         $json = ['status' => 'E00', 'msg' => 'UNKNOWN_USER'];
     } else {
-        $json = ['status' => 'S00', 'data' => array('user_id' => $data)];
+        $json = ['status' => 'S00', 'data' => $data];
     }
 }
 

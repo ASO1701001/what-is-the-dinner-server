@@ -4,9 +4,6 @@ class MenuManager {
 
     }
 
-    public static function menuPush() {
-
-    }
     public static function menuSet() {
 
     }
@@ -19,7 +16,7 @@ class MenuManager {
 
     }
 
-    public static function menuLogSet() {
+    public static function menuLogSet(string $user_id, string $menu_name) {
 
     }
 }

@@ -3,21 +3,30 @@ class AccountManager {
     /** ログイン
      * @param string $email
      * @param string $password
-     * @return int|null
+     * @return array
      */
     public static function login(string $email, string $password) {
         require_once 'DatabaseManager.php';
         $db = new DatabaseManager();
 
-        $sql = "SELECT t_user_id FROM TUSER_INFO WHERE t_email = :email AND password = :password";
-        $data = $db->fetchColumn($sql, array('email' => $email, 'password' => $password));
-        if ($data != '') {
-            return $data;
+        $sql = "SELECT t_user_id, t_email FROM TUSER_INFO WHERE t_email = :email AND password = :password";
+        $data = $db->fetch($sql, array('email' => $email, 'password' => $password));
+        if ($data) {
+            return [
+                'account_type' => 'target',
+                'user_id' => $data['t_user_id'],
+                'email' => $data['t_email']
+            ];
         } else {
-            $sql = "SELECT f_user_id FROM FAMILY_USER_INFO WHERE f_email = :email AND password = :password";
-            $data = $db->fetchColumn($sql, array('email' => $email, 'password' => $password));
-            if ($data != '') {
-                return $data;
+            $sql = "SELECT f_user_id, f_email, t_user_id FROM FAMILY_USER_INFO WHERE f_email = :email AND password = :password";
+            $data = $db->fetch($sql, array('email' => $email, 'password' => $password));
+            if ($data) {
+                return [
+                    'account_type' => 'family',
+                    'user_id' => $data['f_user_id'],
+                    'email' => $data['f_email'],
+                    'target_user_id' => $data['t_user_id']
+                ];
             }
         }
         return null;
