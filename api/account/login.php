@@ -4,7 +4,7 @@ require_once '../../libs/AccountManager.php';
 if (!isset($_GET['email']) || !isset($_GET['password'])) {
     $json = ['status' => 'E00', 'msg' => 'REQUIRED_PARAM'];
 } else {
-    $data = AccountManager::sign_in($_GET['email'], $_GET['password']);
+    $data = AccountManager::login($_GET['email'], $_GET['password']);
 
     if (is_null($data)) {
         $json = ['status' => 'E00', 'msg' => 'UNKNOWN_USER'];
