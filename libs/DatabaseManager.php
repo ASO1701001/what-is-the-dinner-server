@@ -1,11 +1,11 @@
 <?php
 class DatabaseManager {
     private $DB_SETTING = [
-        'db_name' => 'nova-systems',
-        'host' => '127.0.0.1',
+        'db_name' => 'LAA1055594-whatdinner',
+        'host' => 'mysql135.phy.lolipop.lan',
         'charset' => 'utf8',
-        'user' => 'nova-systems',
-        'password' => 'q0ahdJTJHhZ4Z0LR'
+        'user' => 'LAA1055594',
+        'password' => 'JR9XSz3zzp8m'
     ];
 
     /**

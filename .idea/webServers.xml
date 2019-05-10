@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3dac1682-8b7a-4cac-8c5d-cacbb7b2a26c" name="sv" url="http://eve.main.jp/">
+        <fileTransfer host="users807.lolipop.jp" port="21" rootFolder="/what-is-the-dinner">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
